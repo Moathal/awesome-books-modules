@@ -1,3 +1,4 @@
+import DateTime from './node_modules/luxon/src/datetime.js';
 import Book from './modules/book.js';
 import BookM from './modules/methods.js';
 
@@ -11,11 +12,13 @@ const header = document.querySelector('header');
 const date = document.querySelector('.date');
 let link = 'a';
 
-setInterval(methods.update(date), 10000)
-
 if (localStorage.getItem('books') !== null) methods.Books = JSON.parse(localStorage.getItem('books'));
 
 methods.resetBooksList(booksList);
+
+setInterval(() => {
+  date.innerText = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+}, 10000);
 
 booksList.addEventListener('click', (e) => {
   if (e.target.className === 'rem-btn') {
