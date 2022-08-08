@@ -1,4 +1,3 @@
-import DateTime from './node_modules/luxon/src/datetime.js';
 import Book from './modules/book.js';
 import BookM from './modules/methods.js';
 
@@ -12,7 +11,8 @@ const header = document.querySelector('header');
 const date = document.querySelector('.date');
 let link = 'a';
 
-date.innerText = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+setInterval(methods.update(date), 10000)
+
 if (localStorage.getItem('books') !== null) methods.Books = JSON.parse(localStorage.getItem('books'));
 
 methods.resetBooksList(booksList);

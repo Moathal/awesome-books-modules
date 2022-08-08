@@ -1,3 +1,5 @@
+import DateTime from '../node_modules/luxon/src/datetime.js';
+
 export default class BookM {
   constructor() {
     this.Books = [];
@@ -24,5 +26,9 @@ export default class BookM {
     this.Books.splice(buttonid, 1);
     window.localStorage.setItem('books', JSON.stringify(this.Books));
     this.resetBooksList(booksList);
+  }
+
+  update(date) {
+    date.innerText = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
   }
 }
