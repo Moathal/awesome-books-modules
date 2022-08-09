@@ -16,6 +16,8 @@ if (localStorage.getItem('books') !== null) methods.Books = JSON.parse(localStor
 
 methods.resetBooksList(booksList);
 
+date.innerText = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+
 setInterval(() => {
   date.innerText = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
 }, 10000);
